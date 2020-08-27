@@ -1,3 +1,6 @@
+
+
+
 // Business Logic
 function ScoreCard(player1, player2) {
   this.players = [player1, player2];
@@ -18,8 +21,9 @@ let diceRoll = function () {
 
 Player.prototype.rollDice = function () {
   let currentRoll = diceRoll();
+
   if (currentRoll !== 1) {
-    this.turnScore += currentRoll;
+    this.turnScore += currentRoll
   }
   else {
     this.turnScore = 0;
@@ -112,14 +116,124 @@ let attachEventListeners = function () {
 
 };
 
-$(document).ready(function () {
 
+let attachEventListeners2 = function () {
+  // Event Listener for Player 1 Roll
+  $("button#player1Roll").click(function () {
+    let roll1 = player1.rollDice();
+    let roll2 = player1.rollDice();
+    $("span#roll1").text(roll1);
+    $("span#roll2").text(roll2);
+
+    $("span#player1TurnScore").text(player1.turnScore);
+
+    if (roll1 === 1 && roll2 === 1) {
+      player1.totalScore = 0;
+      player1.turnScore=0;
+      // Disable player one's buttons
+      $("button.player1Btn").prop("disabled", true);
+      // Enable player two's buttons
+      $("button.player2Btn").prop("disabled", false);
+      newGame.currentPlayer = 2;
+    }
+    // If player one, rolls a one, need to disable buttons
+    else if (roll1 === 1 || roll2 === 1) {
+      player1.turnScore = 0;
+      // Disable player one's buttons
+      $("button.player1Btn").prop("disabled", true);
+      // Enable player two's buttons
+      $("button.player2Btn").prop("disabled", false);
+      newGame.currentPlayer = 2;
+    }
+    else if(roll1===roll2){
+      $("button#player1Hold").prop("disabled",true);
+    }
+    else{
+      $("button#player1Hold").prop("disabled",false);
+    }
+  });
+
+  // Event Listener for Player 1 Hold
+  $("button#player1Hold").click(function () {
+    let score = player1.hold();
+    $("span#player1TotalScore").text(score);
+    $("span#player1TurnScore").text(0);
+    // Disable player one's buttons
+    $("button.player1Btn").prop("disabled", true);
+    // Enable player two's buttons
+    $("button.player2Btn").prop("disabled", false);
+    // Change current player
+    newGame.currentPlayer = 2;
+
+  });
+
+  //  Event Listener for Player 2 Roll
+  $("button#player2Roll").click(function () {
+    let roll1 = player2.rollDice();
+    let roll2 = player2.rollDice();
+    $("span#roll1").text(roll1);
+    $("span#roll2").text(roll2);
+    $("span#player2TurnScore").text(player2.turnScore);
+    if(roll1 === 1 && roll2 === 1) {
+      player2.totalScore = 0;
+      player2.turnScore =0;
+      // Disable player one's buttons
+      $("button.player2Btn").prop("disabled", true);
+      // Enable player two's buttons
+      $("button.player1Btn").prop("disabled", false);
+      newGame.currentPlayer = 1;
+    }
+    // If player two, rolls a one, need to disable buttons
+    else if (roll1 === 1 || roll2 === 1) {
+      player2.turnScore = 0;
+      // Disable player two's buttons
+      $("button.player2Btn").prop("disabled", true);
+      // Enable player one's buttons
+      $("button.player1Btn").prop("disabled", false);
+      newGame.currentPlayer = 1;
+    }
+    else if(roll1===roll2){
+      $("button#player2Hold").prop("disabled",true);
+    }
+    else{
+      $("button#player2Hold").prop("disabled", false);
+    }
+  });
+
+  // Event Listener for Player 2 Hold
+  $("button#player2Hold").click(function () {
+    let score = player2.hold();
+    $("span#player2TotalScore").text(score);
+    $("span#player2TurnScore").text(0);
+    // Disable player two's buttons
+    $("button.player2Btn").prop("disabled", true);
+    // Enable player one's buttons
+    $("button.player1Btn").prop("disabled", false);
+    // Change current player
+    newGame.currentPlayer = 1;
+  });
+
+};
+
+$(document).ready(function () {
+  $("button#1die").click(function(){
+    attachEventListeners();
+    $(".hideDisplay").show();
+    $(".hideOneDice").show();
+    $(".hideTwoDice").hide();
+  })
+  $("button#2die").click(function(){
+    attachEventListeners2();
+    $(".hideDisplay").show();
+    $(".hideTwoDice").show();
+    $(".hideOneDice").hide();
+  })
 
   // Disable player two and enable player one
   $("button.player1Btn").prop("disabled", false);
   $("button.player2Btn").prop("disabled", true);
 
-  attachEventListeners();
+  //attachEventListeners();
 
 });
 
