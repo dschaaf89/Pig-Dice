@@ -129,6 +129,7 @@ let attachEventListeners2 = function () {
 
     if (roll1 === 1 && roll2 === 1) {
       player1.totalScore = 0;
+      player1.turnScore=0;
       // Disable player one's buttons
       $("button.player1Btn").prop("disabled", true);
       // Enable player two's buttons
@@ -137,6 +138,7 @@ let attachEventListeners2 = function () {
     }
     // If player one, rolls a one, need to disable buttons
     else if (roll1 === 1 || roll2 === 1) {
+      player1.turnScore = 0;
       // Disable player one's buttons
       $("button.player1Btn").prop("disabled", true);
       // Enable player two's buttons
@@ -174,6 +176,7 @@ let attachEventListeners2 = function () {
     $("span#player2TurnScore").text(player2.turnScore);
     if(roll1 === 1 && roll2 === 1) {
       player2.totalScore = 0;
+      player2.turnScore =0;
       // Disable player one's buttons
       $("button.player2Btn").prop("disabled", true);
       // Enable player two's buttons
@@ -182,6 +185,7 @@ let attachEventListeners2 = function () {
     }
     // If player two, rolls a one, need to disable buttons
     else if (roll1 === 1 || roll2 === 1) {
+      player2.turnScore = 0;
       // Disable player two's buttons
       $("button.player2Btn").prop("disabled", true);
       // Enable player one's buttons

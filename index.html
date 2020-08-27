@@ -20,29 +20,71 @@
       <button id ="2die" class="btn btn-light"> 2 dice </button>
     </div>
 
-    <!-- Player Roll and Hold Cards -->
-    <div class="row hideDisplay">
-      <div class="col-md-6">
-        <div class="card p-4">
-          <h6>Player 1:</h6>
-          <button id="player1Roll" class="btn btn-primary player1Btn">Roll</button>
-          <br>
-          <button id="player1Hold" class="btn btn-success player1Btn">Hold</button>
+    <!-- Player Roll and Hold Cards     -->
+    <!-- One Die -->
+    <div class="dice p-2 mx-auto w-25 hideOneDice">
+      <div class="card p-2">
+        <p>Roll: <span id="roll"></span></p>
+      </div>
+    </div>
+    <!-- Add in div for one die with class of "hideOneDie" -->
+
+    <!-- Two Dice -->
+    <div class="row mx-auto w-25 hideTwoDice">
+      <div class="column dice p-2 ">
+        <div class="card p-2">
+          <p>Dice 1: <span id="roll1"></span></p>
         </div>
       </div>
-      <div class="col-md-6">
+
+      <div class="column dice p-2 ">
+        <div class="card p-2">
+          <p>Dice 2: <span id="roll2"></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="row hideDisplay">
+      <div class="column">
         <div class="card p-4">
-          <h6>Player 2:</h6>
-          <button id="player2Roll" class="btn btn-primary player2Btn">Roll</button>
-          <br>
-          <button id="player2Hold" class="btn btn-success player2Btn">Hold</button>
+
+          <div class="card p-2 text-center">
+              <h6>Player 1:</h6>
+              <button id="player1Roll" class="btn btn-primary player1Btn mx-auto">Roll</button>
+              <br>
+              <button id="player1Hold" class="btn btn-success player1Btn mx-auto">Hold</button>
+            <div>
+              <br>
+              <div class="card p-2 text-center">
+                <h6>Total Score: <span id="player1TotalScore"></span> </h6>
+                <h6>Turn Score: <span id="player1TurnScore"></span> </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card p-4">
+          <div class="card p-2 text-center">
+              <h6>Player 2:</h6>
+              <button id="player2Roll" class="btn btn-primary player2Btn mx-auto">Roll</button>
+              <br>
+              <button id="player2Hold" class="btn btn-success player2Btn mx-auto">Hold</button>
+            <div>
+            <br>
+              <div class="card p-2 text-center">
+                <h6>Total Score: <span id="player2TotalScore"></span> </h6>
+                <h6>Turn Score: <span id="player2TurnScore"></span> </h6>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <br>
 
     <!-- Player Score Cards -->
-    <div class="row mx-4 hideDisplay">
+    <!-- <div class="row mx-4 hideDisplay">
       <div class="col-md-6">
         <div class="card p-2 text-center">
           <h6>Total Score: <span id="player1TotalScore"></span> </h6>
@@ -54,32 +96,11 @@
           <h6>Total Score: <span id="player2TotalScore"></span> </h6>
           <h6>Turn Score: <span id="player2TurnScore"></span> </h6>
         </div>
-      </div>
+      </div> -->
       <br>
       <br>
 
-    <!-- One Die -->
-    <div class="dice p-2 mx-auto hideOneDice">
-      <div class="card p-2">
-        <p>Roll: <span id="roll"></span></p>
-      </div>
-    </div>
-    <!-- Add in div for one die with class of "hideOneDie" -->
-
-    <!-- Two Dice -->
-    <div class="row mx-auto hideTwoDice">
-      <div class="col-md-6 dice p-2">
-        <div class="card p-2">
-          <p>Dice 1: <span id="roll1"></span></p>
-        </div>
-      </div>
-
-      <div class="col-md-6 dice p-2">
-        <div class="card p-2">
-          <p>Dice 2: <span id="roll2"></span></p>
-        </div>
-      </div>
-    </div>
+   
 
     <!-- Win Card -->
     <div class="winCard p-2 mx-auto">
