@@ -59,11 +59,7 @@ let attachEventListeners = function () {
     $("span#roll1").text(roll1);
     $("span#roll2").text(roll2);
 
-
-
     $("span#player1TurnScore").text(player1.turnScore);
-
-
 
     if (roll1 === 1 && roll2 === 1) {
       player1.totalScore = 0;
@@ -80,7 +76,13 @@ let attachEventListeners = function () {
       // Enable player two's buttons
       $("button.player2Btn").prop("disabled", false);
       newGame.currentPlayer = 2;
-    };
+    }
+    else if(roll1===roll2){
+      $("button#player1Hold").prop("disabled",true);
+    }
+    else{
+      $("button#player1Hold").prop("disabled",false);
+    }
   });
 
   // Event Listener for Player 1 Hold
@@ -111,6 +113,7 @@ let attachEventListeners = function () {
       // Enable player two's buttons
       $("button.player1Btn").prop("disabled", false);
       newGame.currentPlayer = 1;
+    }
     // If player two, rolls a one, need to disable buttons
     else if (roll1 === 1 || roll2 === 1) {
       // Disable player two's buttons
@@ -118,7 +121,13 @@ let attachEventListeners = function () {
       // Enable player one's buttons
       $("button.player1Btn").prop("disabled", false);
       newGame.currentPlayer = 1;
-    };
+    }
+    else if(roll1===roll2){
+      $("button#player2Hold").prop("disabled",true);
+    }
+    else{
+      $("button#player2Hold").prop("disabled", false);
+    }
   });
 
   // Event Listener for Player 2 Hold
