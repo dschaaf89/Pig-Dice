@@ -15,9 +15,13 @@
     <div class="jumbotron text-center">
       <h2>Pig Dice!</h2>
       <hr>
-      <p>Let's Roll!</p>
+      <p>How many dice would you like to play with?</p>
+      <button id ="1die" class="btn btn-light"> 1 dice </button>
+      <button id ="2die" class="btn btn-light"> 2 dice </button>
     </div>
-    <div class="row">
+
+    <!-- Player Roll and Hold Cards -->
+    <div class="row hideDisplay">
       <div class="col-md-6">
         <div class="card p-4">
           <h6>Player 1:</h6>
@@ -36,7 +40,9 @@
       </div>
     </div>
     <br>
-    <div class="row mx-4">
+
+    <!-- Player Score Cards -->
+    <div class="row mx-4 hideDisplay">
       <div class="col-md-6">
         <div class="card p-2 text-center">
           <h6>Total Score: <span id="player1TotalScore"></span> </h6>
@@ -52,25 +58,31 @@
       <br>
       <br>
 
-      <div class="row mx-auto">
-        <div class="col-md-6 dice p-2">
-          <div class="card p-2">
-            <p>Dice 1: <span id="roll1"></span></p>
-          </div>
-        </div>
+    <!-- One Die -->
+    <!-- Add in div for one die with class of "hideOneDie" -->
 
-        <div class="col-md-6 dice p-2">
-          <div class="card p-2">
-            <p>Dice 2: <span id="roll2"></span></p>
-          </div>
-        </div>
-
-        <div class="winCard p-2 mx-auto">
-          <div class="card p-2">
-            <p class="display-4">Player <span id="winningPlayer"></span> Wins!</p>
-          </div>
+    <!-- Two Dice -->
+    <div class="row mx-auto hideTwoDice">
+      <div class="col-md-6 dice p-2">
+        <div class="card p-2">
+          <p>Dice 1: <span id="roll1"></span></p>
         </div>
       </div>
+
+      <div class="col-md-6 dice p-2">
+        <div class="card p-2">
+          <p>Dice 2: <span id="roll2"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Win Card -->
+    <div class="winCard p-2 mx-auto">
+      <div class="card p-2">
+        <p class="display-4">Player <span id="winningPlayer"></span> Wins!</p>
+      </div>
+    </div>
+    
       
 
 
@@ -81,6 +93,7 @@
 
   </div>
 </body>
+
 <!-- <body>
   <div class="container">
     <div class="jumbotron text-center">

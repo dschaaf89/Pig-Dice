@@ -2,6 +2,16 @@ button {
   width: 25%;
 }
 
+/* Hide Player and Score Cards */
+/* .hideDisplay {
+  display: none;
+} */
+
+/* Hide OneDice Card */
+
+/* Hide TwoDice Card */
+
+/* Hide Win Card */
 .winCard {
   display: none;
 }
