@@ -221,12 +221,14 @@ $(document).ready(function () {
     $(".hideDisplay").show();
     $(".hideOneDice").show();
     $(".hideTwoDice").hide();
+    $("#question").hide();
   })
   $("button#2die").click(function(){
     attachEventListeners2();
     $(".hideDisplay").show();
     $(".hideTwoDice").show();
     $(".hideOneDice").hide();
+    $("#question").hide();
   })
 
   // Disable player two and enable player one
