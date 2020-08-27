@@ -212,13 +212,24 @@ let attachEventListeners2 = function () {
 };
 
 $(document).ready(function () {
-
+  $("button#1die").click(function(){
+    attachEventListeners();
+    $(".hideDisplay").show();
+    $(".hideOneDice").show();
+    $(".hideTwoDice").hide();
+  })
+  $("button#2die").click(function(){
+    attachEventListeners2();
+    $(".hideDisplay").show();
+    $(".hideTwoDice").show();
+    $(".hideOneDice").hide();
+  })
 
   // Disable player two and enable player one
   $("button.player1Btn").prop("disabled", false);
   $("button.player2Btn").prop("disabled", true);
 
-  attachEventListeners();
+  //attachEventListeners();
 
 });
 

@@ -3,13 +3,19 @@ button {
 }
 
 /* Hide Player and Score Cards */
-/* .hideDisplay {
+.hideDisplay {
   display: none;
-} */
+}
 
 /* Hide OneDice Card */
+.hideOneDice {
+  display: none;
+}
 
 /* Hide TwoDice Card */
+.hideTwoDice {
+  display: none;
+}
 
 /* Hide Win Card */
 .winCard {
